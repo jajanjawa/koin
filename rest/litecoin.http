@@ -1,0 +1,21 @@
+@hostname = http://localhost
+@port = 17845
+@host = {{hostname}}:{{port}}
+
+
+# buat alamat
+GET {{host}}/v1/ltc/address
+Content-Type: application/json
+###
+
+# kirim koin
+POST {{host}}/v1/ltc/send
+Content-Type: application/json
+
+{
+"wif": "private key kamu",
+"amount": 5,
+"fee": 0.7,
+"to": "alamat penerima"
+}
+###

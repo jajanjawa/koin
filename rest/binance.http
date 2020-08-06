@@ -1,0 +1,103 @@
+@hostname = http://localhost
+@port = 17845
+@host = {{hostname}}:{{port}}
+
+# membuat alamat
+GET {{host}}/v1/bnb/address
+Content-Type: application/json
+
+###
+
+# membuat key store
+POST {{host}}/v1/bnb/keystore
+Content-Type: application/json
+
+{
+  "pass": "jajanjawa"
+}
+
+###
+
+# buka keystore
+PUT {{host}}/v1/bnb/keystore
+Content-Type: application/json
+
+{
+  "pass": "jajanjawa",
+  "store": {
+    "version": 1,
+    "id": "e00acf01-1317-42e3-93df-cb6f2f0cd687",
+    "crypto": {
+      "ciphertext": "1ab2a0b627995c99815c916c65c8ede67f6ddea4976e580c381eafa3b714d651",
+      "cipherparams": {
+        "iv": "8e74635e2bb30b8a8dedffd54f5c99fc"
+      },
+      "cipher": "aes-256-ctr",
+      "kdf": "pbkdf2",
+      "kdfparams": {
+        "dklen": 32,
+        "salt": "15459a9c6da98c27ed885e712536334e694422c5abd10773a5f712b8a7c5ba86",
+        "c": 262144,
+        "prf": "hmac-sha256"
+      },
+      "mac": "071dadb21c287c9070f7e96e13a0800c1a4c5b48c189aeef2a576ef4676cb48c4d18ec55a8fa47ccba350c2a179721e16933c49a69fad4ba6ab6283bcb5897bd"
+    }
+  }
+}
+
+###
+
+
+# kirim koin rupiah
+# asset: BNB, IDRTB-178, BIDR-0E9, BUSD-BD1
+POST {{host}}/v1/bnb/send
+Content-Type: application/json
+
+{
+  "wif": "private key kamu",
+  "amount": 5000,
+  "to": "alamat penerima",
+  "memo": "17845 tidak wajib",
+  "asset": "IDRTB-178"
+}
+
+###
+
+# kirim banyak
+POST {{host}}/v1/bnb/send/multi
+Content-Type: application/json
+
+{
+  "wif": "private key kamu",
+  "outputs": [
+    {
+      "to": "tbnb1p4kpnj5qz5spsaf0d2555h6ctngse0me5q57qe",
+      "coins": [
+        {
+          "denom": "BNB",
+          "amount": 10
+        },
+        {
+          "denom": "IDRTB-178",
+          "amount": 10000
+        }
+      ]
+    },
+    {
+      "to": "tbnb1scjj8chhhp7lngdeflltzex22yaf9ep59ls4gk",
+      "coins": [
+        {
+          "denom": "IDRTB-178",
+          "amount": 10000
+        },
+        {
+          "denom": "BNB",
+          "amount": 10
+        }
+      ]
+    }
+  ]
+}
+
+###
+
