@@ -101,3 +101,10 @@ Content-Type: application/json
 
 ###
 
+# baca saldo
+GET https://dex-asiapacific.binance.org/api/v1/account/{alamat kamu}
+###
+
+# baca transaksi masuk, periksa memo
+GET https://dex-asiapacific.binance.org/api/v1/transactions?address={alamat kamu}&startTime={timestamp}
+###
