@@ -1,0 +1,16 @@
+{
+  "name": "koin",
+  "version": "1.0.0",
+  "description": "waktunya kirim koin",
+  "main": "index.js",
+  "scripts": {
+    "main": "nodemon index.js"
+  },
+  "author": "jajanjawa",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "litecore-lib": "^0.13.22"
+  }
+}
