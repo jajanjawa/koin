@@ -6,11 +6,7 @@ exports.unspent = async (network, address) => {
     try {
         let response = await axios.get(path);
         let result = response.data;
-        let utxo = result.data.txs;
-        utxo.sort((a, b) => {
-            return b.value - a.value;
-        });
-        return utxo;
+        return result.data.txs;
     } catch (e) {
         throw e;
     }
