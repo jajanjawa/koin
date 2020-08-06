@@ -9,6 +9,7 @@
   "author": "jajanjawa",
   "license": "MIT",
   "dependencies": {
+    "@binance-chain/javascript-sdk": "^4.1.0",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "litecore-lib": "^0.13.22"
